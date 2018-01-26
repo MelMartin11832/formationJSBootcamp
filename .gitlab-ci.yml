@@ -23,7 +23,7 @@ package-js-prod:
 deploy:
   stage: deploy
   only:
-    - master@innovation/bootcampjs/spoc-js
+    - master@bootcampjs/spoc-js
   tags:
     - maven
   script:
