@@ -1,0 +1,25 @@
+.centered {
+  text-align: center;
+}
+
+.img-std {
+  margin-top: 10px;
+  width: 20%;
+}
+
+.img-big {
+  margin-top: 10px;
+  width: 50%;
+}
+
+.nav-tabs {
+  margin-top: 20px;
+}
+
+/* exemple sass : 2 classes imbriquées  */
+$color_bleuLavance: #e6e6fa;
+.application {
+  background-color: $color_bleuLavance;
+  .contenu {
+  }
+}
