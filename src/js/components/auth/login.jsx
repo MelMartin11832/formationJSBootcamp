@@ -20,18 +20,26 @@ class Login extends React.Component {
     this.setState({ ...this.state, done: true });
   }
 
-  handleChange() {
-    const roles = [];
-    this.setState({ ...this.state, roles });
-  }
+  handleClickCheckbox(e) {
+    const { value, checked } = e.target;
+    const { roles } = this.state;
 
-  handleClickCheckbox(e) {}
+    if (checked) {
+      roles.push(value);
+    } else {
+      const index = roles.indexOf(value);
+      if (index !== -1) {
+        roles.splice(index, 1);
+      }
+    }
+    this.setState({ roles });
+  }
 
   render() {
     const { roles, done } = this.state;
     if (done) {
       const exp = Math.floor(Date.now() / 1000) + 3000000000;
-      setToken(jwt.sign({ bar: "foo", exp, roles: roles }, "bootcamp-js"));
+      setToken(jwt.sign({ bar: "foo", exp, roles }, "bootcamp-js"));
       const { from } = this.props.location.state || { from: { pathname: "/" } };
       return <Redirect to={from} />;
     } else {
@@ -41,10 +49,7 @@ class Login extends React.Component {
       return (
         <div>
           <h1>Login fack</h1>
-          <label>
-            Role
-            {checkboxes}
-          </label>
+          {checkboxes}
           <input type="button" value="Auth" onClick={this.handleClick} />
         </div>
       );
@@ -53,12 +58,14 @@ class Login extends React.Component {
 }
 
 const CheckRole = ({ role, handleClick }) => (
-  <label>
-    {`Role ${role} :`}
-    <Checkbox value={role} onClick={handleClick}>
-      {role}
-    </Checkbox>
-  </label>
+  <div className="role">
+    <label>
+      {`Role ${role} :`}
+      <Checkbox value={role} onClick={handleClick}>
+        {role}
+      </Checkbox>
+    </label>
+  </div>
 );
 
 export default Login;

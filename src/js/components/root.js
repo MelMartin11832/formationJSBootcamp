@@ -23,6 +23,9 @@ class Root extends React.Component {
                 <menu.MenuItem title="example" eventKey={1}>
                   <Route exact path="/example" component={Example} />
                 </menu.MenuItem>
+                <menu.MenuItem title="example 2" eventKey={2}>
+                  <Route exact path="/example" component={Example} />
+                </menu.MenuItem>
               </menu.MenuOnglet>
             </Switch>
           </span>
