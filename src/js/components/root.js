@@ -4,7 +4,7 @@ import PageTitle from "js/components/shared/page-title";
 import Home from "js/components/home";
 import Example from "js/components/example";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import PrivateRoute from 'js/components/router/private-route';
+// import PrivateRoute from "js/components/auth/private-route";
 import * as menu from "./menu";
 import Login from "./auth/login";
 import "css/app.css";

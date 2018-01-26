@@ -5,6 +5,7 @@ import Tab from "js/components/shared/tab";
 import Img from "js/components/shared/img";
 import { data } from "./data";
 import { getAuth, ForbidenException, UnauthorizedException } from "./../api/fetch-api";
+import authenticathed from "./../auth/authenticated-component";
 
 const BACK_END_PATH = process.env.REACT_APP_BACK_END_PATH;
 
@@ -70,4 +71,4 @@ class Example extends Component {
   }
 }
 
-export default Example;
+export default authenticathed(Example);
