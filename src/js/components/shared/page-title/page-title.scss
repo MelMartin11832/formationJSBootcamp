@@ -1,0 +1,10 @@
+$color_blue: #044173;
+
+.page-title {
+	border: 2px solid $color_blue;
+	background-color: $color_blue;
+	color: white;
+	border-radius: 6px;
+	padding: 10px;
+	margin-bottom: 20px;
+}
