@@ -1,8 +1,8 @@
-$color_blue: #044173;
+@import 'src/css/app.scss';
 
 .page-title {
-	border: 2px solid $color_blue;
-	background-color: $color_blue;
+	border: 2px solid $color_title;
+	background-color: $color_title;
 	color: white;
 	border-radius: 6px;
 	padding: 10px;
