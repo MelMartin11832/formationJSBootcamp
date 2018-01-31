@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
 import { setToken } from "js/api";
 import * as React from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
 import { FormControl, ControlLabel, Button, PageHeader } from "react-bootstrap";
 
@@ -17,7 +17,7 @@ class Login extends React.Component {
     this.setState({ ...this.state, done: true });
     const exp = Math.floor(Date.now() / 1000) + 3000000000;
     setToken(jwt.sign({ idep: this.state.idep, exp }, "bootcamp-js"));
-    // this.props.chargerUtilisateur();
+    this.props.chargerUtilisateur();
   }
 
   handleChangeIdep(e) {
@@ -42,8 +42,8 @@ class Login extends React.Component {
   }
 }
 
-// Login.propTypes = {
-//   chargerUtilisateur: PropTypes.func.isRequired
-// };
+Login.propTypes = {
+  chargerUtilisateur: PropTypes.func.isRequired
+};
 
 export default Login;
