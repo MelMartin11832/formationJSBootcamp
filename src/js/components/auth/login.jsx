@@ -1,71 +1,49 @@
 import jwt from "jsonwebtoken";
-import { setToken } from "./auth-storage";
+import { setToken } from "js/api";
 import * as React from "react";
+// import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
-import { ROLES_SPOC } from "./../../constantes";
-import { Checkbox } from "react-bootstrap";
-
-// const ROLE_ADMIN = "role_admin";
-// const ROLE_GLANDU = "role_glandu";
+import { FormControl, ControlLabel, Button, PageHeader } from "react-bootstrap";
 
 class Login extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-    this.handleClickCheckbox = this.handleClickCheckbox.bind(this);
-    this.state = { done: false, roles: [] };
+    this.handleChangeIdep = this.handleChangeIdep.bind(this);
+    this.state = { done: false, idep: "" };
   }
 
   handleClick() {
     this.setState({ ...this.state, done: true });
+    const exp = Math.floor(Date.now() / 1000) + 3000000000;
+    setToken(jwt.sign({ idep: this.state.idep, exp }, "bootcamp-js"));
+    // this.props.chargerUtilisateur();
   }
 
-  handleClickCheckbox(e) {
-    const { value, checked } = e.target;
-    const { roles } = this.state;
-
-    if (checked) {
-      roles.push(value);
-    } else {
-      const index = roles.indexOf(value);
-      if (index !== -1) {
-        roles.splice(index, 1);
-      }
-    }
-    this.setState({ roles });
+  handleChangeIdep(e) {
+    this.setState({ ...this.state, idep: e.target.value });
   }
 
   render() {
-    const { roles, done } = this.state;
+    const { done } = this.state;
     if (done) {
-      const exp = Math.floor(Date.now() / 1000) + 3000000000;
-      setToken(jwt.sign({ bar: "foo", exp, roles }, "bootcamp-js"));
       const { from } = this.props.location.state || { from: { pathname: "/" } };
       return <Redirect to={from} />;
     } else {
-      const checkboxes = ROLES_SPOC.map((role, i) => (
-        <CheckRole key={i} role={role} handleClick={this.handleClickCheckbox} />
-      ));
       return (
         <div>
-          <h1>Login fack</h1>
-          {checkboxes}
-          <input type="button" value="Auth" onClick={this.handleClick} />
+          <PageHeader>Login fack</PageHeader>
+          <ControlLabel>Idep</ControlLabel>
+          <FormControl type="text" value={this.state.value} placeholder="Idep" onChange={this.handleChangeIdep} />
+          <Button onClick={this.handleClick}>Auth</Button>
         </div>
       );
     }
   }
 }
 
-const CheckRole = ({ role, handleClick }) => (
-  <div className="role">
-    <label>
-      {`Role ${role} :`}
-      <Checkbox value={role} onClick={handleClick}>
-        {role}
-      </Checkbox>
-    </label>
-  </div>
-);
+// Login.propTypes = {
+//   chargerUtilisateur: PropTypes.func.isRequired
+// };
 
 export default Login;

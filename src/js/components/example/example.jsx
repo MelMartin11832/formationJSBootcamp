@@ -4,10 +4,9 @@ import PageTitle from "js/components/shared/page-title";
 import Tab from "js/components/shared/tab";
 import Img from "js/components/shared/img";
 import { data } from "./data";
-import { getAuth, ForbidenException, UnauthorizedException } from "./../api/fetch-api";
 import authenticathed from "./../auth/authenticated-component";
 
-const BACK_END_PATH = process.env.REACT_APP_BACK_END_PATH;
+import templateOpeStore from "./../../store/template-operationnel-store";
 
 class Example extends Component {
   constructor(props) {
@@ -27,22 +26,12 @@ class Example extends Component {
   }
 
   componentWillMount() {
-    /*
-    * Fetch example : ici on est sensé être authentifié.
-    */
-    getAuth(`${BACK_END_PATH}/resources/templates/all`)
-      .then(templates => {
-        console.log("succés !", templates);
+    templateOpeStore
+      .findOne(1)
+      .then(template => {
+        console.log(template);
       })
-      .catch(e => {
-        if (e.constructor.name === ForbidenException.name) {
-          console.error("Privilèges insuffisants.");
-        } else if (e.constructor.name === UnauthorizedException.name) {
-          console.error("Utilisateur non authentifié.");
-        } else {
-          console.error("erreur inconnue.", e);
-        }
-      });
+      .catch(error => {});
   }
 
   render() {

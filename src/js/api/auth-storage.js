@@ -17,3 +17,7 @@ export const setToken = token => {
 export const clearToken = () => {
   window.localStorage.removeItem(SESSION_ITEM);
 };
+
+export const isAuthenticated = () => {
+  return window.localStorage.getItem(SESSION_ITEM) !== null;
+};

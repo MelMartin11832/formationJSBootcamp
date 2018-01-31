@@ -3,7 +3,7 @@
 */
 import * as React from "react";
 import { Redirect } from "react-router-dom";
-import { getToken } from "./auth-storage";
+import { getToken } from "js/api";
 
 const authenticated = (Component: component) => props => {
   try {
