@@ -2,7 +2,6 @@ import * as React from "react";
 import { Button } from "react-bootstrap";
 import { clearToken, isAuthenticated } from "js/api";
 import authenticated from "./../auth/authenticated-component";
-import { clearStores } from "js/store";
 import "./accueil.css";
 
 class Accueil extends React.Component {
@@ -14,9 +13,7 @@ class Accueil extends React.Component {
 
   handleClick() {
     clearToken();
-    clearStores();
     this.setState({ isAuthenticated: false });
-    this.props.reinitialiserUtilisateur();
   }
 
   render() {
