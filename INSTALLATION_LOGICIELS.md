@@ -1,1 +1,22 @@
 ## Etape 1 : installer atom (IDE)
+Télécharger atom.zip ici : [http://minio.web.innovation.insee.test/minio/download/innovation-readonly/atom.zip?token=''](http://minio.web.innovation.insee.test/minio/download/innovation-readonly/atom.zip?token='')  
+Dézipper quelque part sur le poste en gardant la même structure (.atom doit être au même niveau que Atom x64)  
+Ouvrir Atom x64, atom.exe  
+Enjoy :)
+
+## Etape 2 : installer nodeJS (+ npm)
+Télécharger node ici : [http://minio.web.innovation.insee.test/minio/download/innovation-readonly/node-v9.4.0-win-x64.zip?token=%27%27](http://minio.web.innovation.insee.test/minio/download/innovation-readonly/node-v9.4.0-win-x64.zip?token=%27%27)  
+Dézipper quelque part sur le poste  
+
+### Ajouter nodeJS au path (chemin des executables connus par windows)
+Menu démarrer, Modifier les variables d'environnement POUR VOTRE COMPTE.  
+Si Path existe déjà, le modifier pour rajouter le path vers le dossier nodeJS en séparant du path déjà existant par un ;.  
+Si Path n'existe pas déjà, l'ajouter (clé Path, valeur lecheminversledossiernode).  
+Vérifier que tout fonctionne bien en ouvrant une fenêtre cmd et en tapant :  
+node -v  
+npm -v
+
+### Configurer le proxy pour npm
+Ouvrir une fenêtre cmd et taper :  
+npm config set proxy http://proxy-rie.http.insee.fr:8080
+npm config set https-proxy http://proxy-rie.http.insee.fr:8080
