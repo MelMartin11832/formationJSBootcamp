@@ -4,8 +4,6 @@
 
 Voir [Installation des logiciels](INSTALLATION_LOGICIELS.md)
 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
 ## Installation
 
 ```sh
@@ -25,3 +23,6 @@ Runs the app in the development mode.<br>
 ### `npm build`
 
 Build sources.
+
+
+This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
