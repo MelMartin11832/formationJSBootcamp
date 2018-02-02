@@ -1,11 +1,11 @@
 ## Etape 1 : installer atom (IDE)
-Télécharger atom.zip ici : [http://minio.web.innovation.insee.test/minio/download/innovation-readonly/atom.zip?token=''](http://minio.web.innovation.insee.test/minio/download/innovation-readonly/atom.zip?token='')  
+Télécharger atom.zip ici : [http://minio.web.innovation.insee.test/innovation-readonly/atom.zip](http://minio.web.innovation.insee.test/innovation-readonly/atom.zip)  
 Dézipper quelque part sur le poste en gardant la même structure (.atom doit être au même niveau que Atom x64)  
 Ouvrir Atom x64, atom.exe  
 Enjoy :)
 
 ## Etape 2 : installer nodeJS (+ npm)
-Télécharger node ici : [http://minio.web.innovation.insee.test/minio/download/innovation-readonly/node-v9.4.0-win-x64.zip?token=%27%27](http://minio.web.innovation.insee.test/minio/download/innovation-readonly/node-v9.4.0-win-x64.zip?token=%27%27)  
+Télécharger node ici : [http://minio.web.innovation.insee.test/innovation-readonly/node-v9.4.0-win-x64.zip](http://minio.web.innovation.insee.test/innovation-readonly/node-v9.4.0-win-x64.zip)  
 Dézipper quelque part sur le poste  
 
 ### Ajouter nodeJS au path (chemin des executables connus par windows)
