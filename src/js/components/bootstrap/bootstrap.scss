@@ -1,0 +1,8 @@
+@import 'src/css/app.scss';
+
+.border {
+	border: 1px solid $color_title;
+	border-radius: 2px;
+	padding: 2px;
+	margin-bottom: 5px;
+}

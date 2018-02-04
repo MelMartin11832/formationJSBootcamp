@@ -10,14 +10,8 @@ export const getToken = () => {
   }
 };
 
-export const setToken = token => {
-  window.localStorage.setItem(SESSION_ITEM, token);
-};
+export const setToken = token => window.localStorage.setItem(SESSION_ITEM, token);
 
-export const clearToken = () => {
-  window.localStorage.removeItem(SESSION_ITEM);
-};
+export const clearToken = () => window.localStorage.removeItem(SESSION_ITEM);
 
-export const isAuthenticated = () => {
-  return window.localStorage.getItem(SESSION_ITEM) !== null;
-};
+export const isAuthenticated = () => window.localStorage.getItem(SESSION_ITEM) !== null;

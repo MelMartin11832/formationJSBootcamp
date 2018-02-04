@@ -52,7 +52,7 @@ class Menu extends React.Component {
 
   render() {
     return (
-      <Tabs defaultActiveKey={this.state.indexOngletActif} id="menu-application" onSelect={this.handleSelect}>
+      <Tabs defaultActiveKey={this.state.indexOngletActif} id="menu-application" onSelect={this.handleSelect} justified>
         {this.props.children}
       </Tabs>
     );

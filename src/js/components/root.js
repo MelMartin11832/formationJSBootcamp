@@ -2,46 +2,52 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PageTitle from "js/components/shared/page-title";
 import * as menu from "./menu";
-
 import Login from "./auth/login";
-import Accueil from "./accueil/accueil";
 import Home from "js/components/home";
+import WithoutAuth from "js/components/without-auth";
+import WithAut from "js/components/with-auth";
+import Bootstrap from "js/components/bootstrap";
 
 import "css/app.css";
 
 class Root extends React.Component {
-  componentWillMount() {
-    const { utilisateur, chargerUtilisateur } = this.props;
-    if (utilisateur === null) {
-      chargerUtilisateur();
-    }
+  constructor(props) {
+    super(props);
+    this.state = { user: "" };
+    this.handleChangeUser = this.handleChangeUser.bind(this);
   }
 
-  componentWillUpdate(nextProps) {
-    const { utilisateur, chargerUtilisateur } = nextProps;
-    if (utilisateur === null) {
-      chargerUtilisateur();
-    }
-  }
+  handleChangeUser = user => this.setState({ user });
 
   render() {
-    const hello = this.props.utilisateur ? <Hello idep={this.props.utilisateur.idep} /> : null;
+    const { user } = this.state;
     return (
       <div className="application container">
-        <PageTitle title="Spoc administration" />
-        {hello}
         <Router>
           <span>
-            <Route exact path="/" component={Home} />
-
+            <PageTitle
+              path="/"
+              title="Spoc administration"
+              user={this.state.user}
+              handleChangeUser={this.handleChangeUser}
+            />
             <Switch>
-              <Route path="/login" component={Login} />
+              <Route
+                path="/login"
+                component={props => <Login {...props} user={user} handleChangeUser={this.handleChangeUser} />}
+              />
               <menu.MenuOnglet>
                 <menu.MenuItem title="Accueil" eventKey={1}>
-                  <Route exact path="/accueil" component={Accueil} />
+                  <Route exact path="/" component={Home} />
                 </menu.MenuItem>
-                <menu.MenuItem title="home" eventKey={2}>
-                  <Route exact path="/home" component={Home} />
+                <menu.MenuItem title="Composant SANS auth" eventKey={2}>
+                  <Route exact path="/whithout-auth" component={WithoutAuth} />
+                </menu.MenuItem>
+                <menu.MenuItem title="Composant AVEC auth" eventKey={3}>
+                  <Route exact path="/with-auth" component={props => <WithAut {...props} user={user} />} />
+                </menu.MenuItem>
+                <menu.MenuItem title="Exemple Bootsrap" eventKey={4}>
+                  <Route exact path="/bootstrap" component={Bootstrap} />
                 </menu.MenuItem>
               </menu.MenuOnglet>
             </Switch>
@@ -51,7 +57,5 @@ class Root extends React.Component {
     );
   }
 }
-
-const Hello = ({ idep }) => <div className="welcome">Bonjour {idep} !</div>;
 
 export default Root;
