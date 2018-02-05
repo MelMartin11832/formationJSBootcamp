@@ -46,7 +46,7 @@ class Root extends React.Component {
                 <menu.MenuItem title="Composant AVEC auth" eventKey={3}>
                   <Route exact path="/with-auth" component={props => <WithAut {...props} user={user} />} />
                 </menu.MenuItem>
-                <menu.MenuItem title="Exemple Bootsrap" eventKey={4}>
+                <menu.MenuItem title="Exemple Bootstrap" eventKey={4}>
                   <Route exact path="/bootstrap" component={Bootstrap} />
                 </menu.MenuItem>
               </menu.MenuOnglet>
