@@ -5,7 +5,7 @@ Dézipper quelque part sur le poste en gardant la même structure (.atom doit ê
 Ouvrir Atom x64, atom.exe  
 Enjoy :)
 
-## Etape 1.1 : installer des plugins atom
+### installer des plugins atom
 
 Ouvrer la vue des paramètres via Packages > Settings View
 Installer :
@@ -34,3 +34,8 @@ npm -v
 Ouvrir une fenêtre cmd et taper :  
 npm config set proxy http://proxy-rie.http.insee.fr:8080
 npm config set https-proxy http://proxy-rie.http.insee.fr:8080
+
+## Etape 3 : installer un vrai navigateur (chromium portable) pour les outils de développement
+
+Télécharger Chromium à partir du site de ce site bien pratique : [https://chromium.woolyss.com/](https://chromium.woolyss.com/).  
+Version conseillée : "1. Chromium for 64-bit Windows only" -> version avec sync -> Archive.
