@@ -29,6 +29,7 @@ deploy:
   script:
     - 'APP_ID=`cat marathon.json | jq .id -r`'
     - 'curl -d@marathon.json -H "Content-Type: application/json" -X PUT http://marathon.mesos:8080/v2/apps/$APP_ID?force=true'
+    - 'curl -X POST http://marathon.mesos:8080/v2/apps/$APP_ID/restart?force=true'
   environment:
     name: prod
     url: https://spoc-js.web.innovation.insee.test
