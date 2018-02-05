@@ -39,3 +39,7 @@ npm config set https-proxy http://proxy-rie.http.insee.fr:8080
 
 Télécharger Chromium à partir du site de ce site bien pratique : [https://chromium.woolyss.com/](https://chromium.woolyss.com/).  
 Version conseillée : "1. Chromium for 64-bit Windows only" -> version avec sync -> Archive.
+
+### A faire plus tard : plugins de débug react / redux
+[React dev tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi).  
+[Redux dev tools](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
