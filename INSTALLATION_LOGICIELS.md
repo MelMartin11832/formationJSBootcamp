@@ -32,7 +32,7 @@ npm -v
 ### Configurer le proxy pour npm
 
 Ouvrir une fenêtre cmd et taper :  
-npm config set proxy http://proxy-rie.http.insee.fr:8080
+npm config set proxy http://proxy-rie.http.insee.fr:8080  
 npm config set https-proxy http://proxy-rie.http.insee.fr:8080
 
 ## Etape 3 : installer un vrai navigateur (chromium portable) pour les outils de développement
