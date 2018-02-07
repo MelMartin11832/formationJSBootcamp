@@ -7,6 +7,7 @@ import Home from "js/components/home";
 import WithoutAuth from "js/components/without-auth";
 import WithAut from "js/components/with-auth";
 import Bootstrap from "js/components/bootstrap";
+import JournalEnvois from "js/components/journal-envois";
 
 import "css/app.css";
 
@@ -48,6 +49,9 @@ class Root extends React.Component {
                 </menu.MenuItem>
                 <menu.MenuItem title="Exemple Bootstrap" eventKey={4}>
                   <Route exact path="/bootstrap" component={Bootstrap} />
+                </menu.MenuItem>
+                <menu.MenuItem title="Journal des envois" eventKey={5}>
+                  <Route exact path="/rechercheEnvois" component={JournalEnvois} />
                 </menu.MenuItem>
               </menu.MenuOnglet>
             </Switch>
